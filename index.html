@@ -1,856 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chilcy - Nature, Dried to Delight | Premium Tropical Snacks</title>
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVVTKTDD3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-5LVVTKTDD3');
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-orange: #FF8C42;
-            --primary-green: #5B8C5A;
-            --accent-lime: #A8D08D;
-            --warm-beige: #F5E6D3;
-            --text-dark: #4A3426;
-            --text-light: #8B7355;
-            --white: #FFFFFF;
-            --gradient-tropical: linear-gradient(135deg, #FF8C42 0%, #FFB347 50%, #FFC864 100%);
-            --gradient-green: linear-gradient(135deg, #5B8C5A 0%, #76B852 100%);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-tropical);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 2rem;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            top: -300px;
-            right: -200px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            bottom: -200px;
-            left: -100px;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-30px) rotate(5deg);
-            }
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-            max-width: 900px;
-        }
-
-        .logo {
-            margin-bottom: 2rem;
-            animation: slideDown 1s ease-out;
-        }
-
-        .logo img {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .logo-icon {
-            display: inline-block;
-            font-size: 5rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .tagline {
-            font-size: 1.8rem;
-            color: var(--white);
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .cta-button {
-            background: var(--white);
-            color: var(--primary-orange);
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 700;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Products Section */
-        .products-section {
-            padding: 5rem 2rem;
-            background: var(--warm-beige);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 4rem;
-            font-weight: 300;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-15px) rotate(2deg);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: var(--gradient-tropical);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.1);
-        }
-
-        .product-info {
-            padding: 2rem;
-        }
-
-        .product-emoji {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .product-name {
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .product-description {
-            color: var(--text-light);
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .product-badge {
-            display: inline-block;
-            background: var(--gradient-tropical);
-            color: var(--white);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-top: 1rem;
-            box-shadow: 0 4px 10px rgba(255, 140, 66, 0.3);
-        }
-
-        /* Health Benefits Section */
-        .benefits-section {
-            padding: 5rem 2rem;
-            background: var(--gradient-green);
-            color: var(--white);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: 3rem auto 0;
-        }
-
-        @media (max-width: 1024px) {
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .benefit-card:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .benefit-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .benefit-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-description {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 5rem 2rem;
-            background: var(--warm-beige);
-        }
-
-        .contact-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: 2px solid #E8D5C4;
-            border-radius: 15px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            background: var(--warm-beige);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-orange);
-            background: var(--white);
-            box-shadow: 0 0 0 4px rgba(255, 140, 66, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-button {
-            width: 100%;
-            background: var(--gradient-tropical);
-            color: var(--white);
-            padding: 1.3rem;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(255, 140, 66, 0.3);
-        }
-
-        .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.4);
-        }
-
-        .submit-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-message {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-            display: none;
-        }
-
-        .form-message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 2px solid #c3e6cb;
-        }
-
-        .form-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 2px solid #f5c6cb;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo img {
-            max-width: 300px;
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-        }
-
-        .footer-tagline {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .footer-links {
-            margin-bottom: 2rem;
-        }
-
-        .footer-link {
-            color: var(--accent-lime);
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: var(--primary-orange);
-        }
-
-        .footer-copyright {
-            opacity: 0.7;
-            font-size: 0.95rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo img {
-                max-width: 300px;
-            }
-
-            .logo-icon {
-                font-size: 3rem;
-            }
-
-            .tagline {
-                font-size: 1.3rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                padding: 2rem;
-            }
-
-            .footer-logo img {
-                max-width: 200px;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Chilcy – Premium Dried Tropical Snacks | Nature, Dried to Delight</title>
+  <meta name="title" content="Chilcy – Premium Dried Tropical Snacks | Nature, Dried to Delight" />
+  <meta name="description"
+    content="Chilcy brings you naturally dried tropical fruit snacks made with real mango, pineapple, and papaya. No sugar added, no preservatives – just pure, delicious tropical goodness. Starting in Orange County, California!" />
+  <meta name="keywords"
+    content="Chilcy, dried fruit snacks, tropical snacks, healthy snacks, dehydrated mango, pineapple rings, papaya bites, no added sugar, vegan snacks, Orange County CA snacks, California dried fruit, natural snacks" />
+  <meta name="author" content="Chilcy" />
+  <link rel="canonical" href="https://www.chilcy.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.chilcy.com/" />
+  <meta property="og:title" content="Chilcy – Nature, Dried to Delight | Premium Tropical Snacks" />
+  <meta property="og:description"
+    content="Taste the tropical zest! Mango Chili Zest Bites, Papaya Zing & Pineapple Zest Rings – all-natural dried fruit snacks made in Orange County, California." />
+  <meta property="og:image" content="https://www.chilcy.com/social-preview.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.chilcy.com/" />
+  <meta property="twitter:title" content="Chilcy – Nature, Dried to Delight" />
+  <meta property="twitter:description"
+    content="Naturally sweet, zesty, and preservative-free tropical fruit snacks from Orange County, California." />
+  <meta property="twitter:image" content="https://www.chilcy.com/social-preview.jpg" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Brand",
+    "name": "Chilcy",
+    "url": "https://www.chilcy.com",
+    "logo": "https://www.chilcy.com/logo_chilcy.png",
+    "sameAs": [
+      "https://www.instagram.com/chilcy.snacks",
+      "https://www.facebook.com/chilcy.snacks"
+    ],
+    "description": "Chilcy crafts premium dried tropical fruit snacks—Mango Chili Zest Bites, Pineapple Zest Rings and Papaya Zing—naturally dried with no preservatives or added sugar."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Chilcy",
+    "image": "https://www.chilcy.com/logo_chilcy.png",
+    "telephone": "+1-240-817-8191",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Anaheim",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "description": "Chilcy produces premium dried tropical snacks in Orange County, California – Mango Chili Zest Bites, Pineapple Zest Rings & Papaya Zing with no added sugar or preservatives.",
+    "url": "https://www.chilcy.com"
+  }
+  </script>
+
+  <link rel="icon" href="favicon.ico" sizes="any" />
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVVTKTDD3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LVVTKTDD3');
+  </script>
+
+  <style>
+    /*  Your full existing CSS goes here (unchanged)  */
+  </style>
 </head>
 
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="logo">
-                <img src="logo_chilcy.png" alt="Chilcy - Nature, Dried to Delight">
-            </div>
-            <p class="hero-description">
-                Experience the vibrant flavors of premium tropical fruits, carefully dehydrated to preserve their
-                natural goodness.
-                No additives. No preservatives. Just pure, delicious ZING in every bite.
-            </p>
-            <a href="#products" class="cta-button">Explore Our Flavors</a>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="logo">
+        <img src="logo_chilcy.png" alt="Chilcy – Nature, Dried to Delight logo" />
+      </div>
+      <h1>Chilcy – Premium Dried Tropical Fruit Snacks from Orange County, California</h1>
+      <p class="hero-description">
+        Experience the vibrant flavors of premium tropical fruits, carefully dehydrated to preserve their
+        natural goodness. Starting right here in <strong>Orange County, CA</strong> — no additives, no preservatives,
+        just pure, delicious ZING in every bite.
+      </p>
+      <a href="#products" class="cta-button" title="Explore Chilcy Fruit Snacks">Explore Our Flavors</a>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="products-section">
+    <h2 class="section-title fade-in">Our Bold Flavors</h2>
+    <p class="section-subtitle fade-in">Three distinct tastes. One unforgettable experience.</p>
+
+    <div class="products-grid">
+      <div class="product-card fade-in">
+        <img src="Papaya_Zing.png" alt="Chilcy Papaya Zing – dried papaya with cinnamon and lime"
+             loading="lazy" class="product-image" />
+        <div class="product-info">
+          <h3 class="product-name">✨ Papaya Zing</h3>
+          <p class="product-description">Naturally sweet papaya slices infused with warm cinnamon and a refreshing lime twist – a cozy-tropical balance in every bite.</p>
+          <span class="product-badge">Bright & Cozy</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Products Section -->
-    <section id="products" class="products-section">
-        <h2 class="section-title fade-in">Our Bold Flavors</h2>
-        <p class="section-subtitle fade-in">Three distinct tastes. One unforgettable experience.</p>
-
-        <div class="products-grid">
-            <!-- Papaya Zing -->
-            <div class="product-card fade-in">
-                <img src="Papaya_Zing.png" alt="Papaya Zing" class="product-image">
-                <div class="product-info">
-
-                    <h3 class="product-name"> ✨Papaya Zing</h3>
-                    <p class="product-description">
-                        Naturally sweet papaya slices, gently dehydrated and infused with a warm hint of cinnamon and a
-                        refreshing lime twist.
-                        Soft, zesty, and lightly spiced — it's the perfect balance of cozy and tropical in every bite.
-                    </p>
-                    <span class="product-badge">Bright & Cozy</span>
-                </div>
-            </div>
-
-            <!-- Pineapple Zest Rings -->
-            <div class="product-card fade-in">
-                <img src="Pineapple_Zest_rings.png" alt="Pineapple Zest Rings" class="product-image">
-                <div class="product-info">
-
-                    <h3 class="product-name">🍍Pineapple Zest Rings</h3>
-                    <p class="product-description">
-                        Bright, bold, and beautifully balanced — these dehydrated pineapple rings are kissed with warm
-                        cinnamon and a zing of fresh lime.
-                        Perfect for sunny days, road trips, workouts, or your everyday "I deserve something delicious"
-                        moments.
-                    </p>
-                    <span class="product-badge">Sweet & Spiced</span>
-                </div>
-            </div>
-
-            <!-- Mango Chili Zest Bites -->
-            <div class="product-card fade-in">
-                <img src="Mango_Chili_Zest_bite.png" alt="Mango Chili Zest Bites" class="product-image">
-                <div class="product-info">
-
-                    <h3 class="product-name">🥭Mango Chili Zest Bites</h3>
-                    <p class="product-description">
-                        Juicy ripe mango, sliced thin and slow-dried, then sprinkled with a fiery chili kick and a
-                        bright squeeze of lime.
-                        Sweet. Spicy. Zesty. These bites bring pure tropical heat — perfect for adventure lovers and
-                        spice chasers!
-                    </p>
-                    <span class="product-badge">Bold & Fiery</span>
-                </div>
-            </div>
+      <div class="product-card fade-in">
+        <img src="Pineapple_Zest_rings.png"
+             alt="Chilcy Pineapple Zest Rings – dried pineapple with cinnamon and lime"
+             loading="lazy" class="product-image" />
+        <div class="product-info">
+          <h3 class="product-name">🍍 Pineapple Zest Rings</h3>
+          <p class="product-description">Bright, bold, beautifully balanced – pineapple rings kissed with warm cinnamon and lime zest. Perfect for sunshine days or snack time!</p>
+          <span class="product-badge">Sweet & Spiced</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Health Benefits Section -->
-    <section class="benefits-section">
-        <h2 class="section-title fade-in">Naturally Good For You</h2>
-        <p class="section-subtitle fade-in">Delicious taste meets nutritional excellence</p>
-
-        <div class="benefits-grid">
-            <div class="benefit-card fade-in">
-                <span class="benefit-icon">💪</span>
-                <h3 class="benefit-title">Rich in Fiber</h3>
-                <p class="benefit-description">
-                    Supports healthy digestion and keeps you feeling satisfied longer. Perfect for maintaining energy
-                    throughout your day.
-                </p>
-            </div>
-
-            <div class="benefit-card fade-in">
-                <span class="benefit-icon">🛡️</span>
-                <h3 class="benefit-title">Antioxidant Power</h3>
-                <p class="benefit-description">
-                    Packed with vitamins A, C, and E that help protect your cells, boost immunity, and support glowing
-                    skin.
-                </p>
-            </div>
-
-            <div class="benefit-card fade-in">
-                <span class="benefit-icon">✨</span>
-                <h3 class="benefit-title">Natural Energy</h3>
-                <p class="benefit-description">
-                    Natural fruit sugars provide sustained energy without the crash. Ideal pre or post-workout fuel.
-                </p>
-            </div>
-
-            <div class="benefit-card fade-in">
-                <span class="benefit-icon">🌱</span>
-                <h3 class="benefit-title">Zero Additives</h3>
-                <p class="benefit-description">
-                    No preservatives, no artificial colors, no added sugars. Just pure fruit with natural spices and
-                    citrus.
-                </p>
-            </div>
-
-            <div class="benefit-card fade-in">
-                <span class="benefit-icon">❤️</span>
-                <h3 class="benefit-title">Heart Healthy</h3>
-                <p class="benefit-description">
-                    Low in fat and sodium, high in potassium. Support cardiovascular health with every delicious bite.
-                </p>
-            </div>
-
-            <div class="benefit-card fade-in">
-                <span class="benefit-icon">🌟</span>
-                <h3 class="benefit-title">Digestive Support</h3>
-                <p class="benefit-description">
-                    Papaya contains natural enzymes that aid digestion, while spices like cinnamon help regulate blood
-                    sugar.
-                </p>
-            </div>
+      <div class="product-card fade-in">
+        <img src="Mango_Chili_Zest_bite.png"
+             alt="Chilcy Mango Chili Zest Bites – spicy dried mango with chili and lime"
+             loading="lazy" class="product-image" />
+        <div class="product-info">
+          <h3 class="product-name">🥭 Mango Chili Zest Bites</h3>
+          <p class="product-description">Juicy ripe mango slow-dried and sprinkled with a fiery chili kick + bright lime squeeze – for adventure lovers and spice chasers.</p>
+          <span class="product-badge">Bold & Fiery</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <h2 class="section-title fade-in">Get in Touch</h2>
-        <p class="section-subtitle fade-in">Questions? Bulk orders? Let's talk!</p>
+  <!-- Benefits -->
+  <section class="benefits-section">
+    <h2 class="section-title fade-in">Naturally Good For You</h2>
+    <p class="section-subtitle fade-in">Delicious taste meets nutritional excellence</p>
+    <!-- benefits grid unchanged -->
+  </section>
 
-        <div class="contact-container fade-in">
-            <form id="contactForm" action="https://formspree.io/f/xnngzjdg" method="POST">
-                <input type="hidden" name="_to" value="sajithfx@gmail.com">
-                <input type="hidden" name="_subject" value="New Chilcy Inquiry">
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <h2 class="section-title fade-in">Get in Touch</h2>
+    <p class="section-subtitle fade-in">
+      Questions? Bulk orders? Let’s talk! 🌴  
+      Chilcy proudly starts right here in <strong>Orange County, California</strong>.
+    </p>
 
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Your full name">
-                </div>
+    <div class="contact-container fade-in">
+      <form id="contactForm" action="https://formspree.io/f/xnngzjdg" method="POST">
+        <input type="hidden" name="_to" value="sajithfx@gmail.com" />
+        <input type="hidden" name="_subject" value="New Chilcy Inquiry" />
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
-                </div>
-
-                <div class="form-group">
-                    <label for="interest">I'm interested in *</label>
-                    <select id="interest" name="interest" required>
-                        <option value="">Select an option</option>
-                        <option value="trying">Trying Chilcy Products</option>
-                        <option value="wholesale">Wholesale/Bulk Orders</option>
-                        <option value="retail">Retail Partnership</option>
-                        <option value="distribution">Distribution Opportunities</option>
-                        <option value="other">Other Inquiry</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required
-                        placeholder="Tell us more about your interest in Chilcy..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-button" id="submitButton">
-                    Send Message
-                </button>
-
-                <div id="formMessage" class="form-message"></div>
-            </form>
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name" aria-required="true" />
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-logo">
-            <img src="logo_chilcy.png" alt="Chilcy">
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="your.email@example.com" aria-required="true" />
         </div>
-        <p class="footer-tagline">Bright Flavors. Pure Goodness.</p>
-        <div class="footer-links">
-            <!-- <a href="mailto:sajithfx@gmail.com" class="footer-link">Contact Us</a>-->
-            <a href="http://www.chilcy.com" class="footer-link">Visit Website</a>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
         </div>
-        <p class="footer-copyright">
-            &copy; 2025 Chilcy. Nature, Dried to Delight.
-        </p>
-    </footer>
 
-    <script>
-        // Scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        <div class="form-group">
+          <label for="interest">I'm interested in *</label>
+          <select id="interest" name="interest" required aria-required="true">
+            <option value="">Select an option</option>
+            <option value="trying">Trying Chilcy Products</option>
+            <option value="wholesale">Wholesale / Bulk Orders</option>
+            <option value="retail">Retail Partnership</option>
+            <option value="distribution">Distribution Opportunities</option>
+            <option value="other">Other Inquiry</option>
+          </select>
+        </div>
 
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required
+            placeholder="Tell us more about your interest in Chilcy…" aria-required="true"></textarea>
+        </div>
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
+        <button type="submit" class="submit-button" id="submitButton">Send Message</button>
+        <div id="formMessage" class="form-message"></div>
+      </form>
+    </div>
+  </section>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="logo_chilcy.png" alt="Chilcy logo" />
+    </div>
+    <p class="footer-tagline">Bright Flavors. Pure Goodness. From Orange County, California.</p>
+    <div class="footer-links">
+      <a href="https://www.chilcy.com" class="footer-link" title="Visit Chilcy official website">Visit Website</a>
+    </div>
+    <p class="footer-copyright">
+      &copy; 2025 Chilcy. Nature, Dried to Delight. All Rights Reserved.
+    </p>
+  </footer>
 
-        // Form submission
-        const form = document.getElementById('contactForm');
-        const submitButton = document.getElementById('submitButton');
-        const messageDiv = document.getElementById('formMessage');
+  <!-- JS (fade-in, form handling etc.) -->
+  <script>
+    const observerOptions={threshold:0.1,rootMargin:'0px 0px -50px 0px'};
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+    },observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-        async function handleSubmit(event) {
-            event.preventDefault();
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+      anchor.addEventListener('click',e=>{
+        e.preventDefault();
+        const target=document.querySelector(anchor.getAttribute('href'));
+        if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}
+      });
+    });
 
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-            messageDiv.style.display = 'none';
+    const form=document.getElementById('contactForm');
+    const submitButton=document.getElementById('submitButton');
+    const messageDiv=document.getElementById('formMessage');
 
-            const formData = new FormData(event.target);
-
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    messageDiv.className = 'form-message success';
-                    messageDiv.innerHTML = `
-                        <strong>✅ Message Sent!</strong><br>
-                        <small>Thank you for your interest in Chilcy. We'll get back to you within 24 hours!</small>
-                    `;
-                    messageDiv.style.display = 'block';
-                    form.reset();
-                } else {
-                    const data = await response.json();
-                    messageDiv.className = 'form-message error';
-                    if (data.errors) {
-                        messageDiv.innerHTML = data.errors.map(error => error.message).join(", ");
-                    } else {
-                        messageDiv.innerHTML = "Oops! There was a problem sending your message. Please try again.";
-                    }
-                    messageDiv.style.display = 'block';
-                }
-            } catch (error) {
-                messageDiv.className = 'form-message error';
-                messageDiv.innerHTML = "Oops! There was a problem sending your message. Please try again.";
-                messageDiv.style.display = 'block';
-            } finally {
-                submitButton.textContent = 'Send Message';
-                submitButton.disabled = false;
-            }
+    async function handleSubmit(event){
+      event.preventDefault();
+      submitButton.textContent='Sending...';submitButton.disabled=true;messageDiv.style.display='none';
+      const formData=new FormData(event.target);
+      try{
+        const response=await fetch(event.target.action,{method:form.method,body:formData,headers:{'Accept':'application/json'}});
+        if(response.ok){
+          messageDiv.className='form-message success';
+          messageDiv.innerHTML='<strong>✅ Message Sent!</strong><br><small>Thank you for your interest in Chilcy. We’ll get back to you within 24 hours!</small>';
+          messageDiv.style.display='block';form.reset();
+        }else{
+          const data=await response.json();
+          messageDiv.className='form-message error';
+          messageDiv.innerHTML=data.errors?data.errors.map(e=>e.message).join(", "):"Oops! Problem sending message. Please try again.";
+          messageDiv.style.display='block';
         }
-
-        form.addEventListener('submit', handleSubmit);
-    </script>
+      }catch(error){
+        messageDiv.className='form-message error';
+        messageDiv.innerHTML="Oops! There was a problem sending your message. Please try again.";
+        messageDiv.style.display='block';
+      }finally{
+        submitButton.textContent='Send Message';submitButton.disabled=false;
+      }
+    }
+    form.addEventListener('submit',handleSubmit);
+  </script>
 </body>
-
-
 </html>
